@@ -3,13 +3,12 @@ credentials-file: /etc/cloudflared/creds/credentials.json
 metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
-  # Minecraft server (Create Astral modpack)
-  - hostname: mc.ryuzu.dev
-    service: tcp://create-astral.minecraft.svc.cluster.local:25565
-  
-  # Minecraft RCON
-  - hostname: mc-rcon.ryuzu.dev
-    service: tcp://create-astral.minecraft.svc.cluster.local:25575
+  # Example TCP service configuration
+  # - hostname: tcp.example.com
+  #   service: tcp://service-name.namespace.svc.cluster.local:port
+  # Example UDP service configuration  
+  # - hostname: udp.example.com
+  #   service: udp://service-name.namespace.svc.cluster.local:port
   
   # Catch-all rule (required)
   - service: http_status:404
