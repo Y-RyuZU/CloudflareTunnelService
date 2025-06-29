@@ -1,0 +1,15 @@
+tunnel: ryuzu-dev-tunnnel
+credentials-file: /etc/cloudflared/creds/credentials.json
+metrics: 0.0.0.0:2000
+no-autoupdate: true
+ingress:
+  # TCP service example (e.g., Minecraft)
+  # - hostname: mc.ryuzu.dev
+  #   service: tcp://minecraft-service.minecraft.svc.cluster.local:25565
+  
+  # Another TCP service example
+  # - hostname: db.ryuzu.dev
+  #   service: tcp://postgres.database.svc.cluster.local:5432
+  
+  # Catch-all rule (required)
+  - service: http_status:404

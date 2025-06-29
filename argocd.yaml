@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudflare-tunnel-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:Y-RyuZU/CloudflareTunnelService.git'  # Update with your actual repo URL
+    targetRevision: main
+    path: "cloudflare-tunnel/overlays/production"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cloudflare-tunnel
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

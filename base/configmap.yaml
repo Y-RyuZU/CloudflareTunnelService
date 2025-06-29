@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared-config
+  namespace: cloudflare-tunnel
+data:
+  config.yaml: |
+    tunnel: TUNNEL_ID
+    credentials-file: /etc/cloudflared/creds/credentials.json
+    metrics: 0.0.0.0:2000
+    no-autoupdate: true
+    ingress:
+    # Example TCP service configuration
+    # - hostname: tcp.example.com
+    #   service: tcp://service-name.namespace.svc.cluster.local:port
+    # Example UDP service configuration  
+    # - hostname: udp.example.com
+    #   service: udp://service-name.namespace.svc.cluster.local:port
+    - service: http_status:404
