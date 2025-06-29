@@ -4,12 +4,6 @@ kind: Kustomization
 resources:
   - ../../base
 
-patches:
-  - path: deployment-patch.yaml
-    target:
-      kind: Deployment
-      name: cloudflared
-
 configMapGenerator:
   - name: cloudflared-config
     namespace: cloudflare-tunnel
