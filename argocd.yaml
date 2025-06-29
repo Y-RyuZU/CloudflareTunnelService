@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'git@github.com:Y-RyuZU/CloudflareTunnelService.git'  # Update with your actual repo URL
+    repoURL: 'git@github.com:Y-RyuZU/CloudflareTunnelService.git'
     targetRevision: main
-    path: "cloudflare-tunnel/overlays/production"
+    path: "."
   destination:
     server: https://kubernetes.default.svc
     namespace: cloudflare-tunnel
